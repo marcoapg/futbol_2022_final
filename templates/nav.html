@@ -1,0 +1,75 @@
+<!-- mainmenu-->
+<nav class="mainmenu">
+  <div class="container">
+    <!-- Menu-->
+    <ul class="sf-menu" id="menu">
+      <li class="current">
+        <a href="/">Inicio</a>
+   
+      </li>
+
+      <li class="current">
+        <a href="/">Deportes</a>
+        <ul class="sub-current">
+          {% for d_n in deportes_nav %}
+          <li>
+            <a href="/competencias/{{d_n.nombre.lower}}">{{ d_n.nombre | title }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </li>
+
+      <li class="current">
+        <a href="/">Competencias</a>
+        <ul class="sub-current">
+          {% for c_nn in competencias_nav %}
+          <li>
+            <a href="/competencias/{{c_nn.deporte_id.nombre.lower}}/{{c_nn.nombre.lower}}">{{ c_nn.nombre | title }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </li>
+
+      <li class="current">
+        <a href="/">Fixtures</a>
+        <ul class="sub-current">
+          {% for c_n in competencias_nav %}
+          <li>
+            <a href="/competencias/{{c_n.nombre.lower}}/fixture">{{ c_n.nombre | title}}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </li>
+      <li class="current">
+        <a href="/">Encuentros Jugados</a>
+        <ul class="sub-current">
+          {% for c_n in competencias_nav %}
+          <li>
+            <a href="/competencias/{{c_n.nombre.lower}}/encuentros">{{ c_n.nombre | title}}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </li>
+      <li class="current">
+        <a href="/contacto">Contacto</a>
+      </li>
+
+      {% comment %} <li class="current">
+        <a href="players.html">Equipos</a>
+        <ul class="sub-current">
+          <li>
+            <a href="players.html">Lista de Equipos</a>
+          </li>
+        </ul>
+      </li> {% endcomment %}
+
+          
+    </ul>
+    <!-- End Menu-->
+  </div>
+</nav>
+<!-- End mainmenu-->
+
+<!-- Mobile Nav-->
+
+<!-- End Mobile Nav-->

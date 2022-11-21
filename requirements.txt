@@ -1,0 +1,4 @@
+Django==4.1.1
+django-admin-volt==0.0.6
+Pillow==9.1.0
+colorama==0.4.5

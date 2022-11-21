@@ -1,0 +1,29 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "name": "Python: Django",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}\\manage.py",
+            "args": [
+                "runserver"
+            ],
+            "django": true,
+            "justMyCode": true
+        },
+        {
+            "name": "ultimo_futbol",
+            "python": "C:/Users/marco/AppData/Local/Programs/Python/Python310",
+            "type": "python",
+            "request": "launch",
+            "program": "D:/ultimo_futbol/manage.py",
+            "console": "internalConsole",
+            "args": ["runserver"],
+           "django": true,
+           "justMyCode": true,
+          }
+
+    ]
+}

@@ -1,0 +1,626 @@
+{% extends "admin/base_site.html" %}
+{% load i18n static %}
+
+{% block breadcrumbs %}{% endblock %}
+
+{% block content %}
+    <div class="py-4">
+        <div class="dropdown">
+            <button class="btn btn-gray-800 d-inline-flex align-items-center me-2 dropdown-toggle"
+                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <svg class="icon icon-xs me-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                </svg>
+                Nueva Tarea
+            </button>
+            <div class="dropdown-menu dashboard-dropdown dropdown-menu-start mt-2 py-1">
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                    <svg class="dropdown-icon text-gray-400 me-2" fill="currentColor" viewBox="0 0 20 20"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z"></path>
+                    </svg>
+                    Agregar Usuario
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                    <svg class="dropdown-icon text-gray-400 me-2" fill="currentColor" viewBox="0 0 20 20"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z"></path>
+                    </svg>
+                    Agregar Widget
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                    <svg class="dropdown-icon text-gray-400 me-2" fill="currentColor" viewBox="0 0 20 20"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5.5 13a3.5 3.5 0 01-.369-6.98 4 4 0 117.753-1.977A4.5 4.5 0 1113.5 13H11V9.413l1.293 1.293a1 1 0 001.414-1.414l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13H5.5z"></path>
+                        <path d="M9 13h2v5a1 1 0 11-2 0v-5z"></path>
+                    </svg>
+                    Subir Archivos
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                    <svg class="dropdown-icon text-gray-400 me-2" fill="currentColor" viewBox="0 0 20 20"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                              d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                              clip-rule="evenodd"></path>
+                    </svg>
+                    Ver Seguridad
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <!-- Card Arbitros -->
+        <div class="col-12 col-sm-6 col-xl-3 mb-3">
+            <div class="card border-0 shadow">
+                <div class="card-body">
+                    <div class="row d-block d-xl-flex align-items-center">
+                        <div class="col-12 col-xl-5 text-xl-center mb-3 mb-xl-0 d-flex align-items-center justify-content-xl-center">
+                            <div class="icon-shape icon-shape-primary rounded me-4 me-sm-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M8 1a5 5 0 0 0-5 5v1h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a6 6 0 1 1 12 0v6a2.5 2.5 0 0 1-2.5 2.5H9.366a1 1 0 0 1-.866.5h-1a1 1 0 1 1 0-2h1a1 1 0 0 1 .866.5H11.5A1.5 1.5 0 0 0 13 12h-1a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h1V6a5 5 0 0 0-5-5z"/>
+                                  </svg>
+                            </div>
+                            <div class="d-sm-none">
+                                <h2 class="h5">Arbitros</h2>
+                                <h3 class="fw-extrabold mb-1">{{ arbitros }}</h3>
+                            </div>
+                        </div>
+                        <div class="col-12 col-xl-7 px-xl-0">
+                            <div class="d-none d-sm-block">
+                                <h2 class="h6 text-gray-400 mb-0">Arbitros</h2>
+                                <h3 class="fw-extrabold mb-2">{{ arbitros }}</h3>
+                            </div>
+                            <!--
+                            <small class="d-flex align-items-center text-gray-500">
+                                Feb 1 - Apr 1,
+                                <svg class="icon icon-xxs text-gray-500 ms-2 me-1" fill="currentColor"
+                                     viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                          d="M10 18a8 8 0 100-16 8 8 0 000 16zM4.332 8.027a6.012 6.012 0 011.912-2.706C6.512 5.73 6.974 6 7.5 6A1.5 1.5 0 019 7.5V8a2 2 0 004 0 2 2 0 011.523-1.943A5.977 5.977 0 0116 10c0 .34-.028.675-.083 1H15a2 2 0 00-2 2v2.197A5.973 5.973 0 0110 16v-2a2 2 0 00-2-2 2 2 0 01-2-2 2 2 0 00-1.668-1.973z"
+                                          clip-rule="evenodd"></path>
+                                </svg>
+                                USA
+                            </small>
+                            <div class="small d-flex mt-1">
+                                <div>Since last month
+                                    <svg class="icon icon-xs text-success" fill="currentColor" viewBox="0 0 20 20"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                              d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"
+                                              clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-success fw-bolder">22%</span></div>
+                            </div>
+                            -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Fin - Card Arbitros-->
+
+        <!-- Card Entrenadores -->
+        <div class="col-12 col-sm-6 col-xl-3 mb-3">
+            <div class="card border-0 shadow">
+                <div class="card-body">
+                    <div class="row d-block d-xl-flex align-items-center">
+                        <div class="col-12 col-xl-5 text-xl-center mb-3 mb-xl-0 d-flex align-items-center justify-content-xl-center">
+                            <div class="icon-shape icon-shape-secondary rounded me-4 me-sm-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="bi bi-watch" viewBox="0 0 16 16">
+                                    <path d="M8.5 5a.5.5 0 0 0-1 0v2.5H6a.5.5 0 0 0 0 1h2a.5.5 0 0 0 .5-.5V5z"/>
+                                    <path d="M5.667 16C4.747 16 4 15.254 4 14.333v-1.86A5.985 5.985 0 0 1 2 8c0-1.777.772-3.374 2-4.472V1.667C4 .747 4.746 0 5.667 0h4.666C11.253 0 12 .746 12 1.667v1.86a5.99 5.99 0 0 1 1.918 3.48.502.502 0 0 1 .582.493v1a.5.5 0 0 1-.582.493A5.99 5.99 0 0 1 12 12.473v1.86c0 .92-.746 1.667-1.667 1.667H5.667zM13 8A5 5 0 1 0 3 8a5 5 0 0 0 10 0z"/>
+                                  </svg>
+                            </div>
+                            <div class="d-sm-none">
+                                <h2 class="fw-extrabold h5">Entrenadores</h2>
+                                <h3 class="mb-1">{{ entrenadores }}</h3>
+                            </div>
+                        </div>
+                        <div class="col-12 col-xl-7 px-xl-0">
+                            <div class="d-none d-sm-block">
+                                <h2 class="h6 text-gray-400 mb-0">Entrenadores</h2>
+                                <h3 class="fw-extrabold mb-2">{{ entrenadores }}</h3>
+                            </div>
+                            <!--
+                            <small class="d-flex align-items-center text-gray-500">
+                                Feb 1 - Apr 1,
+                                <svg class="icon icon-xxs text-gray-500 ms-2 me-1" fill="currentColor"
+                                     viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                          d="M10 18a8 8 0 100-16 8 8 0 000 16zM4.332 8.027a6.012 6.012 0 011.912-2.706C6.512 5.73 6.974 6 7.5 6A1.5 1.5 0 019 7.5V8a2 2 0 004 0 2 2 0 011.523-1.943A5.977 5.977 0 0116 10c0 .34-.028.675-.083 1H15a2 2 0 00-2 2v2.197A5.973 5.973 0 0110 16v-2a2 2 0 00-2-2 2 2 0 01-2-2 2 2 0 00-1.668-1.973z"
+                                          clip-rule="evenodd"></path>
+                                </svg>
+                                GER
+                            </small>
+                            <div class="small d-flex mt-1">
+                                <div>Since last month
+                                    <svg class="icon icon-xs text-danger" fill="currentColor" viewBox="0 0 20 20"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                              clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-danger fw-bolder">2%</span></div>
+                            </div>
+                            -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Fin Card Entrenadores -->
+
+        <!-- Card Equipos  -->
+        <div class="col-12 col-sm-6 col-xl-3 mb-3">
+            <div class="card border-0 shadow">
+                <div class="card-body">
+                    <div class="row d-block d-xl-flex align-items-center">
+                        <div class="col-12 col-xl-5 text-xl-center mb-3 mb-xl-0 d-flex align-items-center justify-content-xl-center">
+                            <div class="icon-shape icon-shape-tertiary rounded me-4 me-sm-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-shield-shaded" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M8 14.933a.615.615 0 0 0 .1-.025c.076-.023.174-.061.294-.118.24-.113.547-.29.893-.533a10.726 10.726 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067v13.866zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.775 11.775 0 0 1-2.517 2.453 7.159 7.159 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7.158 7.158 0 0 1-1.048-.625 11.777 11.777 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 62.456 62.456 0 0 1 5.072.56z"/>
+                                  </svg>
+                            </div>
+                            <div class="d-sm-none">
+                                <h2 class="fw-extrabold h5">Equipos</h2>
+                                <h3 class="mb-1">{{ equipos }}</h3>
+                            </div>
+                        </div>
+                        <div class="col-12 col-xl-7 px-xl-0">
+                            <div class="d-none d-sm-block">
+                                <h2 class="h6 text-gray-400 mb-0">Equipos</h2>
+                                <h3 class="fw-extrabold mb-2">{{ equipos }}</h3>
+                            </div>
+                            <!--
+                            <small class="text-gray-500">
+                                Feb 1 - Apr 1
+                            </small>
+                            <div class="small d-flex mt-1">
+                                <div>Since last month
+                                    <svg class="icon icon-xs text-success" fill="currentColor" viewBox="0 0 20 20"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                              d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"
+                                              clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-success fw-bolder">4%</span></div>
+                            </div>
+                            -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- Fin - Card Equipos  -->
+
+    <!-- Card Jugadores  -->
+        <div class="col-12 col-sm-6 col-xl-3 mb-3">
+            <div class="card border-0 shadow">
+                <div class="card-body">
+                    <div class="row d-block d-xl-flex align-items-center">
+                        <div class="col-12 col-xl-5 text-xl-center mb-3 mb-xl-0 d-flex align-items-center justify-content-xl-center">
+                            <div class="icon-shape icon-shape-tertiary rounded me-4 me-sm-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
+                                    <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                                    <path fill-rule="evenodd" d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z"/>
+                                    <path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
+                                  </svg>
+                            </div>
+                            <div class="d-sm-none">
+                                <h2 class="fw-extrabold h5">Jugadores</h2>
+                                <h3 class="mb-1">{{ jugadores }}</h3>
+                            </div>
+                        </div>
+                        <div class="col-12 col-xl-7 px-xl-0">
+                            <div class="d-none d-sm-block">
+                                <h2 class="h6 text-gray-400 mb-0">Jugadores</h2>
+                                <h3 class="fw-extrabold mb-2">{{ jugadores }}</h3>
+                            </div>
+                            <!--
+                            <small class="text-gray-500">
+                                Feb 1 - Apr 1
+                            </small>
+                            <div class="small d-flex mt-1">
+                                <div>Since last month
+                                    <svg class="icon icon-xs text-success" fill="currentColor" viewBox="0 0 20 20"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-success fw-bolder">4%</span></div>
+                            </div>
+                            -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- Fin - Card Jugadores  -->
+    </div>
+
+    <div class="row">
+
+        <div class="col-12 col-xl-8">
+            <div class="row">
+                <div class="col-12 mb-4">
+                    <div class="card border-0 shadow">
+                        <div class="card-header">
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <h2 class="fs-5 fw-bold mb-0">{% trans 'Recent actions' %}</h2>
+                                    {% trans 'My actions' %}
+                                </div>
+                                {% load log %}
+                                {% get_admin_log 10 as admin_log for_user user %}
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table align-items-center table-flush">
+                                <tbody>
+                                {% if admin_log %}
+                                    {% for entry in admin_log %}
+                                        <tr>
+                                            <th class="text-gray-900" scope="row">
+                                                {{ entry.object_repr }}
+                                            </th>
+                                            <td class="fw-bolder text-gray-500">
+                                                {% if entry.content_type %}
+                                                    <p class="text-muted">
+                                                        {% filter capfirst %}{{ entry.content_type }}{% endfilter %}</p>
+                                                {% else %}
+                                                    <p class="text-muted">{% trans 'Unknown content' %}</p>
+                                                {% endif %}
+                                            </td>
+                                            <td class="fw-bolder text-gray-500">
+                                                <a href="{{ entry.get_admin_url }}" type="button" rel="tooltip" title=""
+                                                   class="btn btn-link"
+                                                   data-original-title="{{ entry.object_repr }}">
+                                                    <i class="tim-icons icon-settings"></i>
+                                                </a>
+                                            </td>
+                                            <td class="fw-bolder text-gray-500">
+                                                {% if entry.is_addition %}
+                                                    <span class="fa fa-plus-circle text-success"></span>
+                                                {% endif %}
+                                                {% if entry.is_change %}
+                                                    <span class="fa fa-edit text-warning"></span>
+                                                {% endif %}
+                                                {% if entry.is_deletion %}
+                                                    <span class="fa fa-trash text-danger"></span>
+                                                {% endif %}
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                {% else %}
+                                    <p>{% trans 'None available' %}</p>
+                                {% endif %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-12 col-xl-4">
+            <div class="card border-0 shadow">
+                <div class="card-header border-bottom d-flex align-items-center justify-content-between">
+                    <h2 class="fs-5 fw-bold mb-0">Miembros del Equipo</h2>
+                    <a href="#" class="btn btn-sm btn-primary">Ver Todos</a>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush list my--3">
+                        
+                        {% for u in usuarios %}
+                        
+                        <li class="list-group-item px-0">
+                            <div class="row align-items-center">
+                                <div class="col-auto">
+                                    <!-- Avatar -->
+                                    <a href="#" class="avatar">
+                                        <img class="rounded" alt="Image placeholder"
+                                             src="{{u.get_avatar}}">
+                                    </a>
+                                </div>
+                                <div class="col-auto ms--2">
+                                    <h4 class="h6 mb-0">
+                                        <a href="/admin/user/user/{{u.id}}">{{ u.first_name }} {{ u.last_name}}</a>
+                                    </h4>
+                                    <div class="d-flex align-items-center">
+                                        <div class="bg-success dot rounded-circle me-1"></div>
+                                        <small>{{u.get_rol_display}}</small>
+                                    </div>
+                                </div>
+                                <div class="col text-end">
+                                    <a href="#"
+                                       class="btn btn-sm btn-secondary d-inline-flex align-items-center">
+                                        <svg class="icon icon-xxs me-2" fill="currentColor" viewBox="0 0 20 20"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd"
+                                                  d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z"
+                                                  clip-rule="evenodd"></path>
+                                        </svg>
+                                        Mensaje
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        {% endfor %}
+                        
+                        
+                        <!-- <li class="list-group-item px-0">
+                            <div class="row align-items-center">
+                                <div class="col-auto">
+                                   
+                                    <a href="#" class="avatar">
+                                        <img class="rounded" alt="Image placeholder"
+                                             src="{% static 'admin_volt/assets/img/team/profile-picture-2.jpg' %}">
+                                    </a>
+                                </div>
+                                <div class="col-auto ms--2">
+                                    <h4 class="h6 mb-0">
+                                        <a href="#">Jose Leos</a>
+                                    </h4>
+                                    <div class="d-flex align-items-center">
+                                        <div class="bg-warning dot rounded-circle me-1"></div>
+                                        <small>In a meeting</small>
+                                    </div>
+                                </div>
+                                <div class="col text-end">
+                                    <a href="#"
+                                       class="btn btn-sm btn-secondary d-inline-flex align-items-center">
+                                        <svg class="icon icon-xxs me-2" fill="currentColor" viewBox="0 0 20 20"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd"
+                                                  d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z"
+                                                  clip-rule="evenodd"></path>
+                                        </svg>
+                                        Message
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="list-group-item px-0">
+                            <div class="row align-items-center">
+                                <div class="col-auto">
+                                    
+                                    <a href="#" class="avatar">
+                                        <img class="rounded" alt="Image placeholder"
+                                             src="{% static 'admin_volt/assets/img/team/profile-picture-3.jpg' %}">
+                                    </a>
+                                </div>
+                                <div class="col-auto ms--2">
+                                    <h4 class="h6 mb-0">
+                                        <a href="#">Bonnie Green</a>
+                                    </h4>
+                                    <div class="d-flex align-items-center">
+                                        <div class="bg-danger dot rounded-circle me-1"></div>
+                                        <small>Offline</small>
+                                    </div>
+                                </div>
+                                <div class="col text-end">
+                                    <a href="#"
+                                       class="btn btn-sm btn-secondary d-inline-flex align-items-center">
+                                        <svg class="icon icon-xxs me-2" fill="currentColor" viewBox="0 0 20 20"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd"
+                                                  d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z"
+                                                  clip-rule="evenodd"></path>
+                                        </svg>
+                                        Message
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="list-group-item px-0">
+                            <div class="row align-items-center">
+                                <div class="col-auto">
+                                    
+                                    <a href="#" class="avatar">
+                                        <img class="rounded" alt="Image placeholder"
+                                             src="{% static 'admin_volt/assets/img/team/profile-picture-4.jpg' %}">
+                                    </a>
+                                </div>
+                                <div class="col-auto ms--2">
+                                    <h4 class="h6 mb-0">
+                                        <a href="#">Neil Sims</a>
+                                    </h4>
+                                    <div class="d-flex align-items-center">
+                                        <div class="bg-danger dot rounded-circle me-1"></div>
+                                        <small>Offline</small>
+                                    </div>
+                                </div>
+                                <div class="col text-end">
+                                    <a href="#"
+                                       class="btn btn-sm btn-secondary d-inline-flex align-items-center">
+                                        <svg class="icon icon-xxs me-2" fill="currentColor" viewBox="0 0 20 20"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd"
+                                                  d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z"
+                                                  clip-rule="evenodd"></path>
+                                        </svg>
+                                        Message
+                                    </a>
+                                </div>
+                            </div>
+                        </li> -->
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- <div class="col-12 col-xl-4">
+            <div class="col-12 px-0 mb-4">
+                <div class="card border-0 shadow">
+                    <div class="card-header d-flex flex-row align-items-center flex-0 border-bottom">
+                        <div class="d-block">
+                            <div class="h6 fw-normal text-gray mb-2">Total orders</div>
+                            <h2 class="h3 fw-extrabold">452</h2>
+                            <div class="small mt-2">
+                                <span class="fas fa-angle-up text-success"></span>
+                                <span class="text-success fw-bold">18.2%</span>
+                            </div>
+                        </div>
+                        <div class="d-block ms-auto">
+                            <div class="d-flex align-items-center text-end mb-2">
+                                <span class="dot rounded-circle bg-gray-800 me-2"></span>
+                                <span class="fw-normal small">July</span>
+                            </div>
+                            <div class="d-flex align-items-center text-end">
+                                <span class="dot rounded-circle bg-secondary me-2"></span>
+                                <span class="fw-normal small">August</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body p-2">
+                        <div class="ct-chart-ranking ct-golden-section ct-series-a"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 px-0 mb-4">
+                <div class="card border-0 shadow">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center justify-content-between border-bottom pb-3">
+                            <div>
+                                <div class="h6 mb-0 d-flex align-items-center">
+                                    <svg class="icon icon-xs text-gray-500 me-2" fill="currentColor" viewBox="0 0 20 20"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                              d="M10 18a8 8 0 100-16 8 8 0 000 16zM4.332 8.027a6.012 6.012 0 011.912-2.706C6.512 5.73 6.974 6 7.5 6A1.5 1.5 0 019 7.5V8a2 2 0 004 0 2 2 0 011.523-1.943A5.977 5.977 0 0116 10c0 .34-.028.675-.083 1H15a2 2 0 00-2 2v2.197A5.973 5.973 0 0110 16v-2a2 2 0 00-2-2 2 2 0 01-2-2 2 2 0 00-1.668-1.973z"
+                                              clip-rule="evenodd"></path>
+                                    </svg>
+                                    Global Rank
+                                </div>
+                            </div>
+                            <div>
+                                <a href="#" class="d-flex align-items-center fw-bold">
+                                    #755
+                                    <svg class="icon icon-xs text-gray-500 ms-1" fill="currentColor" viewBox="0 0 20 20"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                              d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 0l-2 2a1 1 0 101.414 1.414L8 10.414l1.293 1.293a1 1 0 001.414 0l4-4z"
+                                              clip-rule="evenodd"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between border-bottom py-3">
+                            <div>
+                                <div class="h6 mb-0 d-flex align-items-center">
+                                    <svg class="icon icon-xs text-gray-500 me-2" fill="currentColor" viewBox="0 0 20 20"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                              d="M3 6a3 3 0 013-3h10a1 1 0 01.8 1.6L14.25 8l2.55 3.4A1 1 0 0116 13H6a1 1 0 00-1 1v3a1 1 0 11-2 0V6z"
+                                              clip-rule="evenodd"></path>
+                                    </svg>
+                                    Country Rank
+                                </div>
+                                <div class="small card-stats">
+                                    United States
+                                    <svg class="icon icon-xs text-success" fill="currentColor" viewBox="0 0 20 20"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                              d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"
+                                              clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div>
+                                <a href="#" class="d-flex align-items-center fw-bold">
+                                    #32
+                                    <svg class="icon icon-xs text-gray-500 ms-1" fill="currentColor" viewBox="0 0 20 20"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                              d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 0l-2 2a1 1 0 101.414 1.414L8 10.414l1.293 1.293a1 1 0 001.414 0l4-4z"
+                                              clip-rule="evenodd"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between pt-3">
+                            <div>
+                                <div class="h6 mb-0 d-flex align-items-center">
+                                    <svg class="icon icon-xs text-gray-500 me-2" fill="currentColor" viewBox="0 0 20 20"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                              d="M2 6a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1H8a3 3 0 00-3 3v1.5a1.5 1.5 0 01-3 0V6z"
+                                              clip-rule="evenodd"></path>
+                                        <path d="M6 12a2 2 0 012-2h8a2 2 0 012 2v2a2 2 0 01-2 2H2h2a2 2 0 002-2v-2z"></path>
+                                    </svg>
+                                    Category Rank
+                                </div>
+                                <div class="small card-stats">
+                                    Computers Electronics > Technology
+                                    <svg class="icon icon-xs text-success" fill="currentColor" viewBox="0 0 20 20"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                              d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"
+                                              clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div>
+                                <a href="#" class="d-flex align-items-center fw-bold">
+                                    #11
+                                    <svg class="icon icon-xs text-gray-500 ms-1" fill="currentColor" viewBox="0 0 20 20"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                              d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 0l-2 2a1 1 0 101.414 1.414L8 10.414l1.293 1.293a1 1 0 001.414 0l4-4z"
+                                              clip-rule="evenodd"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 px-0">
+                <div class="card border-0 shadow">
+                    <div class="card-body">
+                        <h2 class="fs-5 fw-bold mb-1">Acquisition</h2>
+                        <p>Tells you where your visitors originated from, such as search engines, social networks or
+                            website referrals.</p>
+                        <div class="d-block">
+                            <div class="d-flex align-items-center me-5">
+                                <div class="icon-shape icon-sm icon-shape-danger rounded me-3">
+                                    <svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                              d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11 4a1 1 0 10-2 0v4a1 1 0 102 0V7zm-3 1a1 1 0 10-2 0v3a1 1 0 102 0V8zM8 9a1 1 0 00-2 0v2a1 1 0 102 0V9z"
+                                              clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <div class="d-block">
+                                    <label class="mb-0">Bounce Rate</label>
+                                    <h4 class="mb-0">33.50%</h4>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center pt-3">
+                                <div class="icon-shape icon-sm icon-shape-purple rounded me-3">
+                                    <svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"></path>
+                                    </svg>
+                                </div>
+                                <div class="d-block">
+                                    <label class="mb-0">Sessions</label>
+                                    <h4 class="mb-0">9,567</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+    </div>
+
+{% endblock %}
+
+{% block extrascript %}{% endblock %}

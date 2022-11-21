@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load i18n static %}
+
+{% block title %} Equipos - Torneo {% endblock %}
+
+{% block content %}
+
+            <!-- Google Map -->
+            <div id="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.0777903983744!2d-79.86522725028796!3d-6.760368967961021!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x904ceeeffd190ddd%3A0xce387ae6229aa09e!2sUSAT!5e0!3m2!1ses-419!2spe!4v1668371607364!5m2!1ses-419!2spe" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <!-- End Google Map -->
+
+            <!-- Section Area - Content Central -->
+            <section class="content-info">
+
+                <div class="container">
+                    <div class="row paddings-mini">
+                        <!-- Left Content -->
+                        <div class="col-md-4">
+                            <aside class="panel-box">
+                                <div class="titles no-margin">
+                                    <h4>Oficinas</h4>
+                                </div>
+                                <div class="info-panel">
+                                    <address>
+                                      <strong>USAT</strong><br>
+                                      <i class="fa fa-map-marker"></i><strong>Direccion: </strong> Av San Josemaría Escriva de Balaguer 855, Chiclayo 14012<br>
+                                      <i class="fa fa-plane"></i><strong>Ciudad: </strong>Lambayeque, Chiclayo<br>
+                                      <i class="fa fa-phone"></i><strong>Telefono:</strong> (074) 606200
+                                    </address>
+                                </div>
+                            </aside>
+
+                            <aside class="panel-box">
+                                <div class="titles no-margin">
+                                    <h4>Email de Contactos</h4>
+                                </div>
+                                <div class="info-panel">
+                                    <address>
+                                      <i class="fa fa-envelope"></i><strong>Email:</strong><a href="mailto:#"> atencionusat@usat.edu.pe</a><br>
+                                      <i class="fa fa-envelope"></i><strong>Email:</strong><a href="mailto:#"> mesadepartes@usat.edu.pe</a>
+                                    </address>
+                                </div>
+                            </aside>
+                        </div>
+                        <!-- End Left Content -->
+
+                        <!-- Right Content -->
+                        <div class="col-md-8">
+                            <div class="panel-box">
+                                <div class="titles no-margin">
+                                    <h4>Contactanos</h4>
+                                </div>
+                                <div class="info-panel">
+                                    <!-- Form Contact -->
+                                    <form class="form-theme" action="php/send-mail.php">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Nomres y Apellidos *</label>
+                                                <input type="text"  required="required" value="" maxlength="100" class="form-control" name="Name" id="name">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label>Correo *</label>
+                                                <input type="email"  required="required" value="" maxlength="100" class="form-control" name="Email" id="email">
+                                            </div>
+                                        </div>
+                                         <div class="row">
+                                            <div class="col-md-12">
+                                                <label>Tema de discusion *</label>
+                                                <input type="text"  required="required" value="" maxlength="100" class="form-control" name="Email" id="email">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <label>Comentario *</label>
+                                                <textarea maxlength="5000" rows="10" class="form-control" name="message"  style="height: 138px;" required="required" ></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <input type="submit" value="Enviar Mensaje" class="btn btn-lg btn-primary">
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <!-- End Form Contact -->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="result"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Right Content -->
+                    </div>
+                </div>
+                <br>
+            </section>
+            <!-- End Section Area -  Content Central -->
+{% endblock %}

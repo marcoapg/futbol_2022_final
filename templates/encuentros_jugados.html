@@ -1,0 +1,68 @@
+a{% extends 'base.html' %}
+{% load i18n static %}
+{% block title %} Encuentros Jugados {% endblock %}
+{% block content %}
+
+            <!-- End Mobile Nav-->
+
+            <!-- Section Title -->
+            <div class="section-title" style="background:url(/static/img/portada_encuentro.jpg)">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h1>Encuentros Jugados </h1>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="breadcrumbs">
+                                <ul>
+                                    <li><a href="index.html">Home</a></li>
+                                    <li>Inner Page</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Section Title -->
+
+            <!-- Section Area - Content Central -->
+            <section class="content-info">
+
+                <div class="container padding-top">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="recent-results results-page">
+                                <div class="info-results">
+                                    <ul>
+                                        {% for ej in encuentros_jugados %}
+                                        <li>
+                                            <span class="head">
+                                                {{  ej.equipo_local.nombre}} vs  {{  ej.equipo_visita.nombre}} <span class="date">{{  ej.fecha}}</span>
+                                            </span>
+
+                                            <div class="goals-result">
+                                                <a href="single-team.html">
+                                                    <img src="{{ej.equipo_local.sede_id.ciudad_id.pais_id.logo_bandera.url}}" alt="">
+                                                    {{  ej.equipo_local.nombre}}
+                                                </a>
+
+                                                <span class="goals">
+                                                    <b>{{  ej.resultado_goles_local}}</b> - <b>{{  ej.resultado_goles_visita}}</b>
+                                                    <a href="single-result.html" class="btn theme">Ver Mas</a>
+                                                </span>
+
+                                                <a href="single-team.html">
+                                                    <img src="{{ej.equipo_visita.sede_id.ciudad_id.pais_id.logo_bandera.url}}" alt="">
+                                                    {{  ej.equipo_visita.nombre}}
+                                                </a>
+                                            </div>
+                                        </li> 
+                                        {% endfor %}                                   
+                                    </ul>
+                                </div>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+{% endblock %}

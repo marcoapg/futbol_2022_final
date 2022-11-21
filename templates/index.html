@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+
+{% block title %} Sistema Deportivo {% endblock %}
+
+{% block content %}  
+<div class="hero-header big">
+    <!-- Hero Slider-->
+    <div id="hero-slider" class="hero-slider">
+
+        <!-- Item Slide-->
+        <div class="item-slider" style="background:url(/static/img/slide1.jpg);">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <div class="info-slider">
+                            <h1>Sistema de Futbol</h1>
+                            <p>Muestra información del mundo del Futbol.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Item Slide-->
+
+        <!-- Item Slide-->
+        <div class="item-slider" style="background:url(/static/img/slide2.jpg);">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <div class="info-slider">
+                            <h1>Podrás ver los partidos en tiempo real.</h1>
+                            <p>Gracias al esta nueva aplicación, podrás ver los datos antes, durante y despues del partido de futbol.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Item Slide-->
+
+        <!-- Item Slide-->
+        <div class="item-slider" style="background:url(/static/img/slide3.jpg);">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <div class="info-slider">
+                            <h1>Mantente informado en tus ligas favoritas</h1>
+                            <p>Nos comparte información de los torneos .</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Item Slide-->
+
+    </div>
+    <!-- End Hero Slider-->
+</div>
+<br>
+<div class="container">
+    <div class="row">
+       <div class="col-lg-5 padding-top">
+           <h2>Copa Mundial de Qatar 2022</h2>
+           <p class="lead">La copa que todos esperan está más cerca que nunca. Sin duda alguna, el mundial será un torneo importante para todos aquellos amantes del futbol. Será la oportunidad de muchos para conquistar la tan anciada copa. </p>
+            <img width="200" height="400" src="/static/images/competicion/logo/logo_fifa.png">
+        </div>
+
+       <div class="col-lg-7">
+           <div class="row">
+                <div class="col-md-6 col-xl-4">
+                    <a href="single-team.html">
+                        <div class="item-boxed-img small" style="background: url(/static/images/equipo/portada/SeleccionPeru.png);">
+                            <h4>Equipos </h4>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-6 col-xl-4">
+                    <a href="page-about.html">
+                        <div class="item-boxed-img small" style="background: url(/static/images/competicion/logo/logo_copa_america.png);">
+                            <h4>Fixture</h4>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-xl-4">
+                    <a href="services.html">
+                        <div class="item-boxed-img small" style="background: url(/static/img/background-competencias.jpg);">
+                            <h4>Competición</h4>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-6 col-xl-4">
+                    <a href="single-team.html">
+                        <div class="item-boxed-img small" style="background: url(/static/img/tabla_posiciones.jpg);">
+                            <h4>Tabla de Posiciones </h4>
+                        </div>
+                    </a>
+                </div>                
+           </div>
+       </div>
+    </div>
+</div>
+</div>
+{% endblock %}

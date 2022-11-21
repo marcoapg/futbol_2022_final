@@ -1,0 +1,190 @@
+        {% extends 'base.html' %}
+
+{% block title %} Jugador - Equipo {% endblock %}
+
+{% block content %}
+
+<!-- Section Title -->
+<div class="section-title" style="background:url(/static/img/slide1.jpg)">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h1>Players List</h1>
+            </div>
+
+            <div class="col-md-4">
+                <div class="breadcrumbs">
+                    <ul>
+                        <li><a href="/">Inicio</a></li>
+                        <li>{{jugador.alias | title}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Section Title -->
+
+<!-- Section Area - Content Central -->
+<section class="content-info">
+
+    <!-- Single Team Tabs -->
+    <div class="single-player-tabs">
+       <div class="container">
+            <div class="row">
+                <!-- Side info single team-->
+                <div class="col-lg-4 col-xl-4">
+                   
+                    <div class="item-player single-player">
+                        <div class="head-player">
+                            <img src="/images/{{ jugador.foto }}" alt="location-team">
+                        </div>
+                        <div class="info-player">
+                            <span class="number-player">
+                                {{ contrato.dorsal }}
+                            </span>
+                            <h4>
+                                {{ jugador.alias }}
+                                <span>Datos del jugador</span>
+                            </h4>
+                            <ul>
+                                
+                                <li>
+                                    <strong> Ciudad de Nacimiento:</strong> <span><img src="img/clubs-logos/colombia.png" alt="">   {{ jugador.ciudad_id | title }} </span>
+                                </li>
+                                <li><strong>Nombre Completo:</strong> <span>{{ jugador.nombre | title }} {{ jugador.apellido | title }}</span></li>
+                                <li><strong>Fecha de Nacimiento:</strong> <span>  {{ jugador.fecha_nacimiento | date:"d M,Y" }}</span></li>
+                                <li><strong>Alias</strong> <span>  {{ jugador.alias | title }}</span></li>
+                            </ul>                           
+                        </div>
+                    </div>                    
+                </div>
+                <!-- end Side info single team-->
+
+                <div class="col-lg-8 col-xl-8">
+                    <!-- Nav Tabs -->
+                    <ul class="nav nav-tabs" id="myTab">
+                       <li class="active"><a href="#overview" data-toggle="tab">Principal</a></li>
+                       <li><a href="#career" data-toggle="tab">Historial de transferencias</a></li>
+                    </ul>
+                    <!-- End Nav Tabs -->
+
+                    <!-- Content Tabs -->
+                    <div class="tab-content">
+                        <!-- Tab One - overview -->
+                        <div class="tab-pane active" id="overview">
+
+                            <div class="panel-box padding-b">
+                              <div class="titles">
+                                  <h4>Datos Actuales - {{ jugador.nombre }} {{ jugador.apellido }}</h4>
+                              </div>
+                                <div class="row">
+                                   
+
+                                   <div class="col-lg-12 col-xl-8">
+                                    <ul>
+                                
+                                        <li>
+                                            {% for cs in contratos_seleccion %}
+                                            <strong> Selección:</strong> <span><img src="" alt="">   {{ cs.nuevo_club }} </span>
+                                            {% endfor %}
+                                        </li>
+                                        {% for cc in contratos_club %}
+                                        <li>                                           
+                                            <strong>Club Actual:</strong> <span>{{ cc.nuevo_club }}</span>                                            
+                                        </li>
+                                        <li><strong>Valor:</strong> <span>  {{cc.valor}}</span></li>
+                                        {% endfor %}
+                                        <li><strong>Peso (Kilogramos):</strong> <span>  {{jugador.peso}}</span></li>
+                                        <li><strong>Altura (Metros):</strong> <span>  {{jugador.estatura}}</span></li>
+                                        
+                                    </ul>                           
+                                   </div>
+                               </div>
+                           </div>
+                        </div>
+                       
+                        <!-- Tab Theree - career -->
+                        <div class="tab-pane" id="career">
+                            <div class="col-lg-12">
+                                <h4>Lista de Transferencias por Selección</h4>
+                                <table class="table-striped table-responsive table-hover career">
+                                    <thead>
+                                        <tr>
+                                            <th>-</th>
+                                            <th>Selección</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        {% for cs in contratos_seleccion %}
+                                        <tr>
+                                            <td>
+                                                {{ cs.ultimo_club }}
+                                            </td>
+                                            <td>
+                                                {{ cs.nuevo_club }}
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tab-pane" id="career">                            
+                                <div class="col-lg-12">
+                                    <h4>Lista de Transferencias por Club</h4>
+                                    <table class="table-striped table-responsive table-hover career">
+                                        <thead>
+                                            <tr>
+                                                <th>Ultimo Club</th>
+                                                <th>Nuevo Club</th>
+                                            </tr>
+                                        </thead>
+    
+                                        <tbody>
+                                            {% for cc in contratos_club %}
+                                            <tr>
+                                                <td>
+                                                    {{ cc.ultimo_club }}
+                                                </td>
+                                                <td>
+                                                    {{ cc.nuevo_club }}
+                                                    <!-- <img src="img/clubs-logos/colombia.png" alt="icon1">
+                                                    Japan -->
+                                                </td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                        </div>                       
+                        </div>
+                        
+                        <!-- End Tab Theree - stats -->
+                    </div>
+                    <!-- Content Tabs -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Single Team Tabs -->
+
+    <!-- Newsletter -->
+    
+    <!-- End Newsletter -->
+</section>
+<!-- End Section Area -  Content Central -->
+<!-- 
+<div class="instagram-btn">
+    <div class="btn-instagram">
+        <i class="fa fa-instagram"></i>
+        FOLLOW
+        <a href="https://www.instagram.com/fifaworldcup/" target="_blank">&#64;fifaworldcup</a>
+    </div>
+</div>
+
+<div class="content-instagram">
+    <div id="instafeed"></div>
+</div> -->
+
+{% endblock %}
