@@ -4,7 +4,7 @@ from appArbitro.models import arbitro
 from appContrato.models import contrato, persona, tipo_persona
 from appEquipo.models import equipo, alineacion_equipo
 from appCompeticion.models import competicion,deporte,tipo_competicion,detalle_grupo,fase,grupo
-from appPartido.models import encuentro
+from appPartido.models import encuentro,evento_persona
 from appCompeticion.models import deporte
 from user.models import User
 
@@ -100,14 +100,13 @@ def contextoJugador(request, alias):
 
     return render(request, 'jugador.html', data)
 
-def contextoEncuentrosJugados(request,nombre_competicion):
+def contextoEncuentros(request,nombre_competicion):
     competencia_seleccionada = competicion.objects.get(nombre=nombre_competicion.upper())   
-    encuentros_jugados = []
-    encuentros = encuentro.objects.filter(competicion_id=competencia_seleccionada,estado_jugado=True)
-    for ej in encuentros:
-        encuentros_jugados.append(ej)   
+    encuentros_por_jugar = encuentro.objects.filter(competicion_id=competencia_seleccionada,estado_jugado=False)    
+    encuentros_jugados = encuentro.objects.filter(competicion_id=competencia_seleccionada,estado_jugado=True)
     data={
-        'encuentros_jugados': encuentros_jugados
+        'encuentros_jugados' : encuentros_jugados,
+        'encuentros_por_jugar': encuentros_por_jugar
     }
     return render(request,'encuentros_jugados.html',data)
 
@@ -185,6 +184,21 @@ def contextoFixtureCompetencia(request, nombre_competicion):
     }
 
     return render(request, 'fixtures.html', data)
+
+def contextoListaJugadoresPorGoles(request,nombre_competicion):
+    competencia_seleccionada = competicion.objects.get(nombre=nombre_competicion.upper()) 
+    filtro_encuentros_competencia = encuentro.objects.filter(competicion_id=competencia_seleccionada.competicion_id)
+    # persona_jugador = persona.objects.get(tipo_persona_id=1)
+    lista_goles_persona = []
+    goles_persona=evento_persona.objects.filter(evento_id=9)
+    # goles=evento_persona.objects.filter(evento_id=9,persona_id=persona_jugador).count()
+    for gp in goles_persona:
+        lista_goles_persona.append(gp)        
+    data={
+        'lista_goles_persona': lista_goles_persona  
+        # 'goles': goles
+    }
+    return render(request, 'lista_jugadores_goles.html', data)
 
 def contextoTablaPosiciones(request,competencia,grupos):
 

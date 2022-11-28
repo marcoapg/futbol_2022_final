@@ -1,0 +1,71 @@
+
+{% extends 'base.html' %}
+{% load i18n static %}
+{% block title %} Lista de jugadores por goles {% endblock %}
+{% block content %}
+            <!-- section-hero-->
+          
+            <!-- End section-hero-->
+
+            <!-- Section Area - Content Central -->
+            <section class="content-info">
+
+                <!-- Dark Home -->
+                <div class="dark-home paddings-50-50">
+                    <div class="container">
+                        <div class="row">                           
+                            <!-- end recent-results -->
+
+                            <!-- Top player -->
+                            <div class="col-lg-4">
+                               <div class="player-ranking">
+                                    <h5><a href="group-list.html">Tabla de goleadores</a></h5>
+                                    <div class="info-player">
+                                        <ul>
+                                            {% for gp in lista_goles_persona %}
+                                            <li>
+                                               <a href="single-team.html" style="color:#FFF">
+                                                    <img src="" alt="">
+                                                   {{ gp.persona_id }}
+                                                </a>
+                                                <span class="points">
+                                                    
+                                                </span>
+                                            </li>     
+                                            {% endfor %}                                       
+                                        </ul>
+                                    </div>
+                               </div>
+                            </div>
+                            <!-- End Top player -->
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-header hero-bg" style="background:url(img/slide/3.jpg);">
+                    <div class="container">
+                        <div class="row">                       
+                        </div>
+                    </div>
+                </div>
+                <!-- Content Central -->
+              
+                <!-- End Content Central -->
+
+                <!-- Newsletter -->
+                
+                <!-- End Newsletter -->
+            </section>
+            <!-- End Section Area -  Content Central -->
+           
+
+            <!-- footer-->
+            
+            <!-- End footer-->
+
+            <!-- footer Down-->
+             
+{% endblock %}
+
+
+      
+
